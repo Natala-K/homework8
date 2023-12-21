@@ -1,0 +1,10 @@
+import csv
+
+with open('web_clients_correct.csv', 'r') as csv_file:
+    reader = csv.DictReader(csv_file)
+
+    with open('test.txt', 'w') as txt_file:
+        for row in reader:
+            description = f"Пользователь {row['name']} {row['sex']} пола, {row['age']} y.e. совершил покупку на {row['bill']} с {row['device_type']} браузера {row['browser']}.Регион, из которого совершалась покупка: {row['region']}.\n"
+
+            txt_file.write(description)
